@@ -1,167 +1,97 @@
-# MERN Stack Project Template
+# LinkedIn Clone
 
-A minimal, ready-to-use MERN stack project template with modern tooling and best practices.
-
-## Technologies
-
-- **MongoDB** - with Mongoose v7.5.3
-- **Express** - v4.18.2
-- **React** - v18.2.0
-- **Node.js** - v22.14
-- **Tailwind CSS** - v3.3.5
-- **Vite** - For fast React development and building
+A pixel-perfect LinkedIn profile page clone built with the MERN stack (MongoDB, Express, React, Node.js).
 
 ## Features
 
-- 📁 Clean project structure following best practices
-- 🚀 Optimized development workflow with Vite
-- 🎨 Tailwind CSS for utility-first styling
-- 📱 Responsive design ready
-- 🔄 Hot module replacement for rapid development
-- 🧩 Modular architecture for easy scaling
-- 🛣️ React Router for client-side routing
-- 🔌 Proxy setup for seamless API communication
-- 🔒 Environment variable management
+- Exact replica of LinkedIn profile UI with responsive design
+- Interactive components (profile, experience, education sections)
+- Functional modals (view profile, sign in, join now)
+- Backend API with MongoDB integration
+- Course recommendations and related posts sections
 
-## Project Structure
+## Tech Stack
 
-```
-mern-template/
-├── client/                 # React frontend (Vite)
-│   ├── index.html          # Main HTML template
-│   ├── public/             # Static files
-│   │   └── vite.svg        # Favicon
-│   ├── src/                # React source code
-│   │   ├── App.jsx         # Main React component
-│   │   ├── index.css       # Global styles (Tailwind imports)
-│   │   └── main.jsx        # React entry point
-│   ├── .eslintrc.cjs       # ESLint configuration
-│   ├── package.json        # Client dependencies
-│   ├── tailwind.config.js  # Tailwind configuration
-│   ├── postcss.config.js   # PostCSS configuration
-│   └── vite.config.js      # Vite configuration
-├── server/                 # Express backend
-│   ├── config/             # Configuration files
-│   │   └── db.js           # Database connection
-│   ├── models/             # Mongoose models
-│   │   └── .gitkeep        # Placeholder
-│   ├── routes/             # Express routes
-│   │   └── api.js          # API routes
-│   ├── controllers/        # Route controllers
-│   │   └── .gitkeep        # Placeholder
-│   ├── middleware/         # Custom middleware
-│   │   └── .gitkeep        # Placeholder
-│   ├── server.js           # Server entry point
-│   ├── package.json        # Server dependencies
-│   └── .npmrc              # Node.js configuration
-├── .gitignore              # Git ignore file
-├── .env.example            # Example environment variables
-├── LICENSE                 # MIT License
-└── README.md               # Project documentation
-```
+**Frontend:** React 18, React Router, Tailwind CSS, Axios  
+**Backend:** Node.js 22, Express, MongoDB with Mongoose  
+**Development:** Vite, ESLint, Nodemon
 
-## Getting Started
+## Quick Start
 
 ### Prerequisites
-
-- Node.js v22.14
-- MongoDB (local or Atlas)
-- npm
+- Node.js v22.14+
+- MongoDB
 
 ### Installation
 
-1. Clone the repository
+1. **Clone and setup environment**
    ```bash
-   git clone https://github.com/apaluca/mern-template.git
-   cd mern-template
+   git clone https://github.com/yourusername/linkedin-clone.git
+   cd linkedin-clone
+   cp .env.example .env
+   # Update .env with your MongoDB URI
    ```
 
-2. Install server dependencies
+2. **Install dependencies & seed database**
    ```bash
+   # Server setup
    cd server
    npm install
-   ```
-
-3. Install client dependencies
-   ```bash
+   node seeds/profileSeeds.js
+   
+   # Client setup
    cd ../client
    npm install
    ```
 
-4. Set up environment variables
+3. **Run the application**
    ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
-
-### Running the Application
-
-1. Start the backend server
-   ```bash
-   # In the server directory
+   # Start backend (from server directory)
+   npm run dev
+   
+   # Start frontend (from client directory)
    npm run dev
    ```
 
-2. Start the frontend development server
-   ```bash
-   # In the client directory
-   npm run dev
-   ```
-
-3. Access the application
+4. **Access the application**
    - Frontend: http://localhost:3000
    - Backend API: http://localhost:8000/api
 
-## Development
+## Project Structure
 
-### Adding a New Feature
+```
+linkedin-clone/
+├── client/              # React frontend
+│   ├── src/             # Source code
+│   │   ├── components/  # React components (common, layout, profile, modals)
+│   │   ├── context/     # Context providers (modals)
+│   │   ├── pages/       # Page components
+│   │   └── App.jsx      # Main app component
+├── server/              # Express backend
+│   ├── controllers/     # Route controllers
+│   ├── models/          # Mongoose models
+│   ├── routes/          # API routes
+│   ├── seeds/           # Database seed scripts
+│   └── server.js        # Server entry point
+```
 
-1. Create any necessary models in `/server/models/`
-2. Define routes in `/server/routes/`
-3. Update routing in `/client/src/App.jsx`
+## API Endpoints
 
-### Building for Production
+- `GET /api/profiles` - Get all profiles
+- `GET /api/profiles/:username` - Get profile by username
+- `POST /api/profiles` - Create/update profile
+- `DELETE /api/profiles` - Delete profile
 
-1. Build the client
-   ```bash
-   # In the client directory
-   npm run build
-   ```
+## Deployment
 
-2. Set NODE_ENV to production in your .env file
-   ```
-   NODE_ENV=production
-   ```
-
-3. Start the server
-   ```bash
-   # In the server directory
-   npm start
-   ```
-
-## Best Practices Followed
-
-- **Backend**:
-  - Separation of concerns (routes, controllers, models)
-  - Environment variable management
-  - Error handling
-  - MongoDB best practices with Mongoose
-
-- **Frontend**:
-  - Component-based architecture
-  - Modern React patterns
-  - Responsive design with Tailwind
-  - Optimized builds with Vite
+Build the React app with `npm run build` in the client directory, then deploy the backend and serve the static files from the build folder.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+---
 
-- [Express.js](https://expressjs.com/)
-- [React](https://reactjs.org/)
-- [MongoDB](https://www.mongodb.com/)
-- [Mongoose](https://mongoosejs.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Vite](https://vitejs.dev/)
+## Author
+
+Luca-Teodor Apahidean - [GitHub](https://github.com/apaluca)
