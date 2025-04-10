@@ -10,6 +10,7 @@ import RelatedPosts from "../components/profile/RelatedPosts";
 import CollaborativeArticles from "../components/profile/CollaborativeArticles";
 import Footer from "../components/layout/Footer";
 import AppBanner from "../components/common/AppBanner";
+import HiddenSummary from "../components/profile/HiddenSummary";
 import { useModal } from "../context/ModalContext";
 // import axios from "axios";
 
@@ -166,6 +167,9 @@ const ProfilePage = () => {
             <div className="bg-white rounded-lg mb-2 shadow-card">
               <Education education={profileData.education} />
             </div>
+
+            {/* Hidden Summary Section (Bottom CTA) */}
+            <HiddenSummary />
           </div>
 
           {/* Right Sidebar */}
