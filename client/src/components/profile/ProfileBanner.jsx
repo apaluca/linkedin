@@ -27,7 +27,7 @@ const ProfileBanner = ({ bannerImage, profileImage, name }) => {
       </div>
 
       {/* Profile Image */}
-      <div className="absolute left-4 -bottom-16 md:left-8">
+      <div className="absolute left-4 -bottom-2 md:left-8">
         <button
           onClick={() => openModal("viewProfile")}
           className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white overflow-hidden cursor-pointer"
@@ -102,7 +102,7 @@ const ProfileBanner = ({ bannerImage, profileImage, name }) => {
       </div>
 
       {/* Add height for the profile image to protrude */}
-      <div className="h-16 md:h-20"></div>
+      <div className="h-12 md:h-16"></div>
     </div>
   );
 };
