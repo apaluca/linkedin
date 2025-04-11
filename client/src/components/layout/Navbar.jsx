@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useModal } from "../../context/ModalContext";
 
 const Navbar = () => {
   const { openModal } = useModal();
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   return (
     <header className="fixed top-0 w-full bg-white border-b border-linkedin-border z-50">
@@ -136,7 +137,7 @@ const Navbar = () => {
             </button>
 
             <button
-              onClick={() => openModal("join")}
+              onClick={() => navigate("/signup")}
               className="bg-linkedin-blue text-white font-medium px-4 py-1 rounded-full ml-2 hover:bg-linkedin-darkBlue text-sm"
             >
               Join now
