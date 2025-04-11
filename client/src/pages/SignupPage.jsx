@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useModal } from "../context/ModalContext";
 
 const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { openModal } = useModal();
+  // eslint-disable-next-line no-unused-vars
   const { username } = useParams();
   const profileName = "Paul Aurelian";
 
@@ -153,13 +152,12 @@ const SignupPage = () => {
 
             <p className="text-center text-sm">
               Already on LinkedIn?{" "}
-              <button
-                type="button"
-                onClick={() => openModal("signIn")}
+              <Link
+                to="/login"
                 className="text-linkedin-blue font-medium hover:underline"
               >
                 Sign in
-              </button>
+              </Link>
             </p>
           </form>
         </div>

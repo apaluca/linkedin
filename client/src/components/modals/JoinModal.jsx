@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useModal } from "../../context/ModalContext";
 
 const JoinModal = () => {
-  const { activeModal, closeModal, openModal } = useModal();
+  const { activeModal, closeModal } = useModal();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -56,6 +58,11 @@ const JoinModal = () => {
 
     // For demo purposes, we'll just close the modal
     closeModal();
+  };
+
+  const handleSignInClick = () => {
+    closeModal();
+    navigate("/login");
   };
 
   if (activeModal !== "join") return null;
@@ -282,10 +289,7 @@ const JoinModal = () => {
               Already on LinkedIn?{" "}
               <button
                 type="button"
-                onClick={() => {
-                  closeModal();
-                  openModal("signIn");
-                }}
+                onClick={handleSignInClick}
                 className="font-semibold text-linkedin-blue hover:underline"
               >
                 Sign in

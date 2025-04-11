@@ -1,8 +1,10 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useModal } from "../../context/ModalContext";
 
 const ViewProfileModal = () => {
-  const { activeModal, closeModal, openModal } = useModal();
+  const { activeModal, closeModal } = useModal();
+  const navigate = useNavigate();
 
   // Close modal when pressing ESC key
   useEffect(() => {
@@ -15,6 +17,21 @@ const ViewProfileModal = () => {
       window.removeEventListener("keydown", handleEsc);
     };
   }, [closeModal]);
+
+  const handleSignIn = () => {
+    closeModal();
+    navigate("/login");
+  };
+
+  const handleJoinNow = () => {
+    closeModal();
+    navigate("/signup");
+  };
+
+  const handleGoogleSignIn = () => {
+    closeModal();
+    navigate("/login");
+  };
 
   if (activeModal !== "viewProfile") return null;
 
@@ -74,7 +91,10 @@ const ViewProfileModal = () => {
             </div>
 
             <div className="mb-3">
-              <button className="w-full flex items-center justify-center py-2 px-4 rounded-full shadow-sm text-sm font-medium text-white bg-[#7581e0] hover:bg-[#6470c9] focus:outline-none">
+              <button
+                onClick={handleGoogleSignIn}
+                className="w-full flex items-center justify-center py-2 px-4 rounded-full text-white font-medium bg-linkedin-blue hover:bg-linkedin-darkBlue focus:outline-none"
+              >
                 <div className="bg-white rounded-full w-7 h-7 mr-2 flex items-center justify-center">
                   <svg viewBox="0 0 24 24" width="18" height="18">
                     <g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
@@ -103,10 +123,7 @@ const ViewProfileModal = () => {
 
             <div className="mb-4">
               <button
-                onClick={() => {
-                  closeModal();
-                  openModal("signIn");
-                }}
+                onClick={handleSignIn}
                 className="w-full py-2 px-4 border border-gray-300 rounded-full shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
               >
                 Sign in
@@ -126,10 +143,7 @@ const ViewProfileModal = () => {
               <p className="text-sm text-gray-700">
                 New to LinkedIn?{" "}
                 <button
-                  onClick={() => {
-                    closeModal();
-                    openModal("join");
-                  }}
+                  onClick={handleJoinNow}
                   className="text-linkedin-blue font-medium hover:underline"
                 >
                   Join now
@@ -138,7 +152,8 @@ const ViewProfileModal = () => {
             </div>
 
             <div className="mt-6 text-xs text-gray-500 text-center">
-              By clicking Continue to join or sign in, you agree to LinkedIn&apos;s{" "}
+              By clicking Continue to join or sign in, you agree to
+              LinkedIn&apos;s{" "}
               <a href="#" className="text-linkedin-blue hover:underline">
                 User Agreement
               </a>

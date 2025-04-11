@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useModal } from "../../context/ModalContext";
 
 const Navbar = () => {
-  const { openModal } = useModal();
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
@@ -129,12 +127,12 @@ const Navbar = () => {
           </ul>
 
           <div className="flex items-center ml-4">
-            <button
-              onClick={() => openModal("signIn")}
+            <Link
+              to="/login"
               className="bg-transparent text-linkedin-blue font-medium px-4 py-1 rounded-full border-2 border-linkedin-blue hover:bg-linkedin-lightBlue text-sm"
             >
               Sign in
-            </button>
+            </Link>
 
             <button
               onClick={() => navigate("/signup")}
