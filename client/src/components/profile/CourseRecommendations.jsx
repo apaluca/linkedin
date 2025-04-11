@@ -60,7 +60,7 @@ const CourseRecommendations = () => {
         ))}
       </ul>
 
-      <div className="p-3 border-t border-gray-200">
+      <div className="p-3 px-4 border-t border-gray-200">
         <button
           className="w-full py-1.5 px-3 border border-linkedin-blue rounded-full text-linkedin-blue font-medium hover:bg-linkedin-lightBlue text-sm"
           onClick={() => navigate("/login")}
