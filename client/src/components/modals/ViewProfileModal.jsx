@@ -30,12 +30,10 @@ const ViewProfileModal = () => {
         </div>
 
         {/* Modal */}
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-modal transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-          <div className="bg-white p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-gray-900">
-                View Paul Aurelian&apos;s full profile
-              </h3>
+        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-modal transform transition-all sm:my-8 sm:align-middle sm:max-w-md sm:w-full">
+          <div className="relative bg-white p-6">
+            {/* Close button */}
+            <div className="absolute top-4 right-4">
               <button
                 onClick={closeModal}
                 className="text-gray-400 hover:text-gray-600"
@@ -57,76 +55,102 @@ const ViewProfileModal = () => {
               </button>
             </div>
 
-            <div className="mb-4">
-              <div className="flex items-center mb-3">
-                <svg
-                  className="h-5 w-5 mr-2 text-gray-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                  ></path>
-                </svg>
-                <span className="text-gray-700">
-                  See who you know in common
-                </span>
+            <div className="flex flex-col items-center text-center py-4">
+              <div className="w-24 h-24 rounded-full overflow-hidden bg-black mb-4">
+                <img
+                  src="https://media.licdn.com/dms/image/v2/D4E03AQE8WhVEabirRw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1643374443515?e=2147483647&v=beta&t=PEEd2vGzeqoHN8eMVmr5-yo5C4TZt1AWQTHznPoed0M"
+                  alt="Paul Aurelian Gagniuc"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src =
+                      "https://static.licdn.com/aero-v1/sc/h/9c8pery4andzj6ohjkjp54ma2";
+                  }}
+                />
               </div>
-
-              <div className="flex items-center mb-3">
-                <svg
-                  className="h-5 w-5 mr-2 text-gray-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
-                  ></path>
-                </svg>
-                <span className="text-gray-700">Get introduced</span>
-              </div>
-
-              <div className="flex items-center">
-                <svg
-                  className="h-5 w-5 mr-2 text-gray-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  ></path>
-                </svg>
-                <span className="text-gray-700">
-                  Contact Paul Aurelian directly
-                </span>
-              </div>
+              <h3 className="text-xl font-medium text-gray-900 mb-4">
+                View Paul Aurelian&apos;s full profile
+              </h3>
             </div>
 
-            <div className="flex flex-col space-y-2 mt-6">
+            <div className="mb-3">
+              <button className="w-full flex items-center justify-center py-2 px-4 rounded-full shadow-sm text-sm font-medium text-white bg-[#7581e0] hover:bg-[#6470c9] focus:outline-none">
+                <div className="bg-white rounded-full w-7 h-7 mr-2 flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" width="18" height="18">
+                    <g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
+                      <path
+                        fill="#4285F4"
+                        d="M -3.264 51.509 C -3.264 50.719 -3.334 49.969 -3.454 49.239 L -14.754 49.239 L -14.754 53.749 L -8.284 53.749 C -8.574 55.229 -9.424 56.479 -10.684 57.329 L -10.684 60.329 L -6.824 60.329 C -4.564 58.239 -3.264 55.159 -3.264 51.509 Z"
+                      />
+                      <path
+                        fill="#34A853"
+                        d="M -14.754 63.239 C -11.514 63.239 -8.804 62.159 -6.824 60.329 L -10.684 57.329 C -11.764 58.049 -13.134 58.489 -14.754 58.489 C -17.884 58.489 -20.534 56.379 -21.484 53.529 L -25.464 53.529 L -25.464 56.619 C -23.494 60.539 -19.444 63.239 -14.754 63.239 Z"
+                      />
+                      <path
+                        fill="#FBBC05"
+                        d="M -21.484 53.529 C -21.734 52.809 -21.864 52.039 -21.864 51.239 C -21.864 50.439 -21.724 49.669 -21.484 48.949 L -21.484 45.859 L -25.464 45.859 C -26.284 47.479 -26.754 49.299 -26.754 51.239 C -26.754 53.179 -26.284 54.999 -25.464 56.619 L -21.484 53.529 Z"
+                      />
+                      <path
+                        fill="#EA4335"
+                        d="M -14.754 43.989 C -12.984 43.989 -11.404 44.599 -10.154 45.789 L -6.734 42.369 C -8.804 40.429 -11.514 39.239 -14.754 39.239 C -19.444 39.239 -23.494 41.939 -25.464 45.859 L -21.484 48.949 C -20.534 46.099 -17.884 43.989 -14.754 43.989 Z"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                Continue with Google
+              </button>
+            </div>
+
+            <div className="mb-4">
               <button
                 onClick={() => {
                   closeModal();
-                  openModal("join");
+                  openModal("signIn");
                 }}
-                className="w-full py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-linkedin-blue hover:bg-linkedin-darkBlue focus:outline-none"
+                className="w-full py-2 px-4 border border-gray-300 rounded-full shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
               >
-                Join to view full profile
+                Sign in
               </button>
+            </div>
+
+            <div className="relative my-4">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-200"></div>
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="px-4 bg-white text-gray-500">or</span>
+              </div>
+            </div>
+
+            <div className="text-center my-4">
+              <p className="text-sm text-gray-700">
+                New to LinkedIn?{" "}
+                <button
+                  onClick={() => {
+                    closeModal();
+                    openModal("join");
+                  }}
+                  className="text-linkedin-blue font-medium hover:underline"
+                >
+                  Join now
+                </button>
+              </p>
+            </div>
+
+            <div className="mt-6 text-xs text-gray-500 text-center">
+              By clicking Continue to join or sign in, you agree to LinkedIn&apos;s{" "}
+              <a href="#" className="text-linkedin-blue hover:underline">
+                User Agreement
+              </a>
+              ,{" "}
+              <a href="#" className="text-linkedin-blue hover:underline">
+                Privacy Policy
+              </a>
+              , and{" "}
+              <a href="#" className="text-linkedin-blue hover:underline">
+                Cookie Policy
+              </a>
+              .
             </div>
           </div>
         </div>
