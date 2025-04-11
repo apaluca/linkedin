@@ -11,6 +11,7 @@ import CollaborativeArticles from "../components/profile/CollaborativeArticles";
 import Footer from "../components/layout/Footer";
 import AppBanner from "../components/common/AppBanner";
 import HiddenSummary from "../components/profile/HiddenSummary";
+import LoadingScreen from "../components/common/LoadingScreen";
 import { useModal } from "../context/ModalContext";
 // import axios from "axios";
 
@@ -94,11 +95,7 @@ const ProfilePage = () => {
   }, [showModalOnce, username]);
 
   if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-linkedin-gray">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-linkedin-blue"></div>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   if (error) {
