@@ -5,11 +5,18 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
+  const handleSearch = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      navigate("/login");
+    }
+  };
+
   return (
     <header className="fixed top-0 w-full bg-white border-b border-linkedin-border z-50">
       <div className="max-w-[1128px] mx-auto px-4 flex items-center justify-between h-[52px]">
         <div className="flex items-center">
-          <Link to="/" className="mr-2">
+          <Link to="/login" className="mr-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -30,6 +37,7 @@ const Navbar = () => {
               className="bg-linkedin-gray pl-8 pr-2 py-1 rounded-md w-64 text-sm border border-linkedin-border focus:outline-none focus:border-linkedin-blue"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={handleSearch}
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,9 +57,9 @@ const Navbar = () => {
         <nav className="flex items-center">
           <ul className="flex items-center space-x-1 md:space-x-2">
             <li className="nav-item">
-              <Link
-                to="/feed"
-                className="flex flex-col items-center justify-center px-1 py-1 text-xs text-linkedin-darkGray hover:text-black"
+              <div
+                onClick={() => navigate("/login")}
+                className="flex flex-col items-center justify-center px-1 py-1 text-xs text-linkedin-darkGray hover:text-black cursor-pointer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -65,12 +73,12 @@ const Navbar = () => {
                   <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7 5 3.18V2h3v5.09z"></path>
                 </svg>
                 <span>Home</span>
-              </Link>
+              </div>
             </li>
             <li className="nav-item">
-              <Link
-                to="/mynetwork"
-                className="flex flex-col items-center justify-center px-1 py-1 text-xs text-linkedin-darkGray hover:text-black"
+              <div
+                onClick={() => navigate("/login")}
+                className="flex flex-col items-center justify-center px-1 py-1 text-xs text-linkedin-darkGray hover:text-black cursor-pointer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,12 +92,12 @@ const Navbar = () => {
                   <path d="M12 16v6H3v-6a3 3 0 013-3h3a3 3 0 013 3zm5.5-3A3.5 3.5 0 1014 9.5a3.5 3.5 0 003.5 3.5zm1 2h-2a2.5 2.5 0 00-2.5 2.5V22h7v-4.5a2.5 2.5 0 00-2.5-2.5zM7.5 2A4.5 4.5 0 1012 6.5 4.49 4.49 0 007.5 2z"></path>
                 </svg>
                 <span>My Network</span>
-              </Link>
+              </div>
             </li>
             <li className="nav-item">
-              <Link
-                to="/jobs"
-                className="flex flex-col items-center justify-center px-1 py-1 text-xs text-linkedin-darkGray hover:text-black"
+              <div
+                onClick={() => navigate("/login")}
+                className="flex flex-col items-center justify-center px-1 py-1 text-xs text-linkedin-darkGray hover:text-black cursor-pointer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -103,12 +111,12 @@ const Navbar = () => {
                   <path d="M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z"></path>
                 </svg>
                 <span>Jobs</span>
-              </Link>
+              </div>
             </li>
             <li className="nav-item">
-              <Link
-                to="/messaging"
-                className="flex flex-col items-center justify-center px-1 py-1 text-xs text-linkedin-darkGray hover:text-black"
+              <div
+                onClick={() => navigate("/login")}
+                className="flex flex-col items-center justify-center px-1 py-1 text-xs text-linkedin-darkGray hover:text-black cursor-pointer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +130,7 @@ const Navbar = () => {
                   <path d="M16 4H8a7 7 0 000 14h4v4l8.16-5.39A6.78 6.78 0 0023 11a7 7 0 00-7-7zm-8 8.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zm4 0A1.25 1.25 0 1113.25 11 1.25 1.25 0 0112 12.25zm4 0A1.25 1.25 0 1117.25 11 1.25 1.25 0 0116 12.25z"></path>
                 </svg>
                 <span>Messaging</span>
-              </Link>
+              </div>
             </li>
           </ul>
 

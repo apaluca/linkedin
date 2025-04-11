@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 const CollaborativeArticles = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="bg-white rounded-lg mb-4 shadow-card overflow-hidden">
       <div className="p-4">
@@ -28,7 +32,10 @@ const CollaborativeArticles = () => {
           </div>
         </div>
 
-        <button className="w-full py-1.5 px-3 mt-4 border border-linkedin-blue rounded-full text-linkedin-blue font-medium hover:bg-linkedin-lightBlue text-sm">
+        <button
+          className="w-full py-1.5 px-3 mt-4 border border-linkedin-blue rounded-full text-linkedin-blue font-medium hover:bg-linkedin-lightBlue text-sm"
+          onClick={() => navigate("/login")}
+        >
           Explore More
         </button>
       </div>

@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RelatedPosts = () => {
   const [expandedPosts, setExpandedPosts] = useState(false);
+  const navigate = useNavigate();
 
   const posts = [
     {
@@ -69,6 +71,7 @@ const RelatedPosts = () => {
           <li
             key={post.id}
             className="border-b border-gray-200 hover:bg-gray-50 cursor-pointer p-3"
+            onClick={() => navigate("/login")}
           >
             {/* Author Info */}
             <div className="flex items-center mb-2">
@@ -85,7 +88,13 @@ const RelatedPosts = () => {
                     "https://static.licdn.com/aero-v1/sc/h/9c8pery4andzj6ohjkjp54ma2";
                 }}
               />
-              <span className="text-sm text-linkedin-blue font-medium hover:underline">
+              <span
+                className="text-sm text-linkedin-blue font-medium hover:underline"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate("/login");
+                }}
+              >
                 {post.author.name}
               </span>
             </div>

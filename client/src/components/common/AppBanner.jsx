@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AppBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Show the banner after 3 seconds
@@ -38,9 +40,11 @@ const AppBanner = () => {
             Don&apos;t have the app? Get it in the Microsoft Store.
           </p>
 
-          <button className="mt-2 px-3 py-1 bg-gray-100 text-linkedin-blue font-medium rounded-full text-sm hover:bg-gray-200">
-            Open the app
-          </button>
+          <div onClick={() => navigate("/login")}>
+            <button className="mt-2 px-3 py-1 bg-gray-100 text-linkedin-blue font-medium rounded-full text-sm hover:bg-gray-200">
+              Open the app
+            </button>
+          </div>
         </div>
         <button
           onClick={() => setIsVisible(false)}

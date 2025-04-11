@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 const CourseRecommendations = () => {
+  const navigate = useNavigate();
+
   const courses = [
     {
       id: 1,
@@ -34,6 +38,7 @@ const CourseRecommendations = () => {
           <li
             key={course.id}
             className="flex p-3 hover:bg-gray-50 cursor-pointer"
+            onClick={() => navigate("/login")}
           >
             <div className="relative mr-2 flex-shrink-0">
               <img
@@ -56,7 +61,10 @@ const CourseRecommendations = () => {
       </ul>
 
       <div className="p-3 border-t border-gray-200">
-        <button className="w-full py-1.5 px-3 border border-linkedin-blue rounded-full text-linkedin-blue font-medium hover:bg-linkedin-lightBlue text-sm">
+        <button
+          className="w-full py-1.5 px-3 border border-linkedin-blue rounded-full text-linkedin-blue font-medium hover:bg-linkedin-lightBlue text-sm"
+          onClick={() => navigate("/login")}
+        >
           See all courses
         </button>
       </div>

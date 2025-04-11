@@ -41,7 +41,7 @@ const ProfileInfo = ({
       <div className="flex flex-wrap mt-4 -ml-2">
         <button
           onClick={handleJoinClick}
-          className="ml-2 bg-linkedin-blue text-white py-4 px-6 font-semibold rounded-full hover:bg-linkedin-darkBlue"
+          className="ml-2 bg-linkedin-blue text-white py-3 px-6 font-semibold rounded-full hover:bg-linkedin-darkBlue"
         >
           Join to view profile
         </button>
