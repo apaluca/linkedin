@@ -62,45 +62,6 @@ const ProfileBanner = ({ bannerImage, profileImage, name }) => {
         </button>
       </div>
 
-      {/* Actions */}
-      <div className="absolute top-4 right-4 flex space-x-2">
-        <button
-          onClick={() => openModal("share")}
-          className="bg-white text-gray-600 p-2 rounded-full hover:bg-gray-100"
-          aria-label="Share profile"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            data-supported-dps="16x16"
-            fill="currentColor"
-            width="16"
-            height="16"
-            focusable="false"
-          >
-            <path d="M11.99 8.161A3.493 3.493 0 009 5.986V5a1 1 0 00-2 0v.986a3.493 3.493 0 00-2.99 2.175L1.203 12h13.594l-2.807-3.839zM6.75 10A2.75 2.75 0 119.5 7.25 2.75 2.75 0 016.75 10z"></path>
-          </svg>
-        </button>
-
-        <button
-          onClick={() => openModal("more")}
-          className="bg-white text-gray-600 p-2 rounded-full hover:bg-gray-100"
-          aria-label="More options"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            data-supported-dps="16x16"
-            fill="currentColor"
-            width="16"
-            height="16"
-            focusable="false"
-          >
-            <path d="M3 9.5A1.5 1.5 0 114.5 8 1.5 1.5 0 013 9.5zM11.5 8A1.5 1.5 0 1013 9.5 1.5 1.5 0 0011.5 8zM7.5 6.5A1.5 1.5 0 109 8 1.5 1.5 0 007.5 6.5z"></path>
-          </svg>
-        </button>
-      </div>
-
       {/* Add height for the profile image to protrude */}
       <div className="h-12 md:h-16"></div>
     </div>

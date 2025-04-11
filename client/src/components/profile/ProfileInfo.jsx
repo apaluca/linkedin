@@ -25,7 +25,7 @@ const ProfileInfo = ({
         <span>{location}</span>
         <span className="hidden md:inline mx-1">•</span>
         <button
-          onClick={() => openModal("contactInfo")}
+          onClick={() => openModal("viewProfile")}
           className="text-linkedin-blue font-semibold hover:underline"
         >
           Contact Info
