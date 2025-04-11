@@ -52,7 +52,8 @@ const SignupPage = () => {
             />
             <div className="text-left">
               <h2 className="text-xl font-normal text-gray-900">
-                Join LinkedIn to see {profileName}&apos;s full profile - it&apos;s free!
+                Join LinkedIn to see {profileName}&apos;s full profile -
+                it&apos;s free!
               </h2>
             </div>
           </div>
@@ -110,12 +111,12 @@ const SignupPage = () => {
 
             <button
               type="submit"
-              className="w-full py-3 px-4 rounded-full text-white font-medium bg-[#0a66c2] hover:bg-[#004182] focus:outline-none mb-4"
+              className="w-full py-3 px-4 rounded-full text-white font-medium bg-[#0a66c2] hover:bg-[#004182] focus:outline-none mb-6"
             >
               Agree & Join
             </button>
 
-            <div className="relative my-4">
+            <div className="relative mb-6">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-200"></div>
               </div>
@@ -126,7 +127,7 @@ const SignupPage = () => {
 
             <button
               type="button"
-              className="w-full flex items-center justify-center py-2 px-4 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none mb-4"
+              className="w-full flex items-center justify-center py-3 px-4 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none mb-4"
             >
               <svg className="h-4 w-4 mr-2" viewBox="0 0 24 24">
                 <path
