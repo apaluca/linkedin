@@ -18,10 +18,10 @@ const ProfileInfo = ({
 
   return (
     <div className="p-5">
-      <h1 className="text-xl md:text-2xl font-bold">{name}</h1>
+      <h1 className="text-xl md:text-2xl font-semibold">{name}</h1>
       <h2 className="text-md text-gray-700 mt-1">{title}</h2>
 
-      <div className="flex flex-col md:flex-row md:items-center mt-2 text-sm text-gray-500">
+      <div className="flex flex-col md:flex-row md:items-center mt-1 text-1xl text-gray-500">
         <span>{location}</span>
         <span className="hidden md:inline mx-1">•</span>
         <button
@@ -32,7 +32,7 @@ const ProfileInfo = ({
         </button>
       </div>
 
-      <div className="flex items-center mt-2 text-sm text-gray-500">
+      <div className="flex items-center mt-1 text-1xl text-gray-500">
         <span>{followers} followers</span>
         <span className="mx-1">•</span>
         <span>{connections} connections</span>
@@ -41,7 +41,7 @@ const ProfileInfo = ({
       <div className="flex flex-wrap mt-4 -ml-2">
         <button
           onClick={handleJoinClick}
-          className="ml-2 bg-linkedin-blue text-white py-3 px-5 font-medium rounded-full hover:bg-linkedin-darkBlue"
+          className="ml-2 bg-linkedin-blue text-white py-4 px-6 font-semibold rounded-full hover:bg-linkedin-darkBlue"
         >
           Join to view profile
         </button>

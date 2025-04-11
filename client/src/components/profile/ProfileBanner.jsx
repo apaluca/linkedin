@@ -1,7 +1,13 @@
+import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useModal } from "../../context/ModalContext";
 
 const ProfileBanner = ({ bannerImage, profileImage, name }) => {
   const { openModal } = useModal();
+  const navigate = useNavigate();
+  const [showReportDropdown, setShowReportDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+  const buttonRef = useRef(null);
 
   const handleImageError = (e) => {
     // Fallback to a gradient background if image fails to load
@@ -9,6 +15,30 @@ const ProfileBanner = ({ bannerImage, profileImage, name }) => {
     e.target.style.background = "linear-gradient(to right, #70B5F9, #0073B1)";
     e.target.style.height = "134px";
   };
+
+  const handleReportProfile = () => {
+    setShowReportDropdown(false);
+    navigate("/login");
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setShowReportDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="relative">
@@ -60,6 +90,62 @@ const ProfileBanner = ({ bannerImage, profileImage, name }) => {
             </div>
           )}
         </button>
+      </div>
+
+      {/* Three dots menu - positioned higher, right at banner bottom */}
+      <div className="absolute right-4 md:right-6" style={{ top: "calc(80%)" }}>
+        <div className="relative">
+          <button
+            ref={buttonRef}
+            onClick={() => setShowReportDropdown(!showReportDropdown)}
+            className="w-9 h-9 flex items-center justify-center bg-white hover:bg-gray-100 rounded-full border border-gray-200 shadow-sm"
+            aria-label="More actions"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="text-gray-600"
+            >
+              <circle cx="6" cy="12" r="2"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+              <circle cx="18" cy="12" r="2"></circle>
+            </svg>
+          </button>
+
+          {/* Dropdown menu */}
+          {showReportDropdown && (
+            <div
+              ref={dropdownRef}
+              className="absolute right-0 mt-2 bg-white rounded-lg shadow-lg z-30 w-64 overflow-hidden border border-gray-200"
+            >
+              <button
+                onClick={handleReportProfile}
+                className="flex items-center w-full py-3 px-4 text-sm font-semibold text-gray-700 hover:bg-gray-100 text-left"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="mr-2 text-gray-600"
+                >
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                Report this profile
+              </button>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Add height for the profile image to protrude */}
