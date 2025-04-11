@@ -36,55 +36,55 @@ const Footer = () => {
           {/* Links */}
           <div className="flex flex-wrap">
             <Link
-              to="/about"
+              to="/"
               className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
             >
               About
             </Link>
             <Link
-              to="/accessibility"
+              to="/"
               className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
             >
               Accessibility
             </Link>
             <Link
-              to="/user-agreement"
+              to="/"
               className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
             >
               User Agreement
             </Link>
             <Link
-              to="/privacy-policy"
+              to="/"
               className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
             >
               Privacy Policy
             </Link>
             <Link
-              to="/cookie-policy"
+              to="/"
               className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
             >
               Cookie Policy
             </Link>
             <Link
-              to="/copyright-policy"
+              to="/"
               className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
             >
               Copyright Policy
             </Link>
             <Link
-              to="/brand-policy"
+              to="/"
               className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
             >
               Brand Policy
             </Link>
             <Link
-              to="/guest-controls"
+              to="/"
               className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
             >
               Guest Controls
             </Link>
             <Link
-              to="/community-guidelines"
+              to="/"
               className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
             >
               Community Guidelines

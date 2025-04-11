@@ -131,7 +131,7 @@ const LoginPage = () => {
 
             <div className="mb-6">
               <Link
-                to="/forgot-password"
+                to="/"
                 className="text-linkedin-blue text-sm font-medium hover:underline"
               >
                 Forgot password?
