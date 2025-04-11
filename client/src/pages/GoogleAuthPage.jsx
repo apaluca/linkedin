@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 
 const GoogleAuthPage = () => {
   const [email, setEmail] = useState("");
+  const [emailFocused, setEmailFocused] = useState(false);
   const [showPasswordScreen, setShowPasswordScreen] = useState(false);
   const [password, setPassword] = useState("");
+  const [passwordFocused, setPasswordFocused] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   // Update the window title to match Google's sign-in page
@@ -69,19 +71,29 @@ const GoogleAuthPage = () => {
             </p>
 
             <form onSubmit={handleEmailSubmit}>
-              {/* Email input */}
+              {/* Email input with floating label */}
               <div className="mb-7">
-                <div className="w-full mb-2">
+                <div className="relative">
+                  <div
+                    className={`absolute transition-all duration-300 ${
+                      emailFocused || email
+                        ? "top-[-8px] left-3 text-xs bg-white px-1 text-blue-600"
+                        : "top-[14px] left-3 text-gray-500"
+                    }`}
+                  >
+                    Email or phone
+                  </div>
                   <input
                     type="text"
-                    placeholder="Email or phone"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    onFocus={() => setEmailFocused(true)}
+                    onBlur={() => setEmailFocused(false)}
                     className="w-full px-3 py-3 border border-gray-300 rounded text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                     required
                   />
                 </div>
-                <div className="text-left">
+                <div className="text-left mt-2">
                   <a
                     href="#"
                     className="text-sm text-blue-600 hover:underline cursor-pointer"
@@ -157,16 +169,28 @@ const GoogleAuthPage = () => {
             </div>
 
             <form onSubmit={handlePasswordSubmit} className="text-left">
-              {/* Password input field */}
+              {/* Password input field with floating label */}
               <div className="mb-8">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-3 py-3 border border-gray-300 rounded text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  required
-                />
+                <div className="relative">
+                  <div
+                    className={`absolute transition-all duration-300 ${
+                      passwordFocused || password
+                        ? "top-[-8px] left-3 text-xs bg-white px-1 text-blue-600"
+                        : "top-[14px] left-3 text-gray-500"
+                    }`}
+                  >
+                    Enter your password
+                  </div>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    onFocus={() => setPasswordFocused(true)}
+                    onBlur={() => setPasswordFocused(false)}
+                    className="w-full px-3 py-3 border border-gray-300 rounded text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    required
+                  />
+                </div>
 
                 {/* Show password checkbox */}
                 <div className="flex items-center mt-2">
