@@ -3,6 +3,7 @@ import { ModalProvider } from "./context/ModalContext";
 import ProfilePage from "./pages/ProfilePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
+import GoogleAuthPage from "./pages/GoogleAuthPage";
 import ExternalRedirect from "./components/common/ExternalRedirect";
 import ModalRegistry from "./components/modals/ModalRegistry";
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/signup/:username" element={<SignupPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/google-auth" element={<GoogleAuthPage />} />
         </Routes>
 
         {/* Global Modals */}

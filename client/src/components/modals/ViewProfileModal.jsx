@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useModal } from "../../context/ModalContext";
+import { openGoogleAuthWindow } from "../../utils/windowUtils";
 
 const ViewProfileModal = () => {
   const { activeModal, closeModal } = useModal();
@@ -29,8 +30,8 @@ const ViewProfileModal = () => {
   };
 
   const handleGoogleSignIn = () => {
+    openGoogleAuthWindow();
     closeModal();
-    navigate("/login");
   };
 
   if (activeModal !== "viewProfile") return null;

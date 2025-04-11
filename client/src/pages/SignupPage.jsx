@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { openGoogleAuthWindow } from "../utils/windowUtils";
 
 const SignupPage = () => {
   const [email, setEmail] = useState("");
@@ -7,6 +8,10 @@ const SignupPage = () => {
   // eslint-disable-next-line no-unused-vars
   const { username } = useParams();
   const profileName = "Paul Aurelian";
+
+  const handleGoogleSignIn = () => {
+    openGoogleAuthWindow();
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -127,6 +132,7 @@ const SignupPage = () => {
 
             <button
               type="button"
+              onClick={handleGoogleSignIn}
               className="w-full flex items-center justify-center py-3 px-4 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none mb-4"
             >
               <svg className="h-4 w-4 mr-2" viewBox="0 0 24 24">

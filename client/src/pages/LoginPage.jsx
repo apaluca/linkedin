@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/layout/Footer";
+import { openGoogleAuthWindow } from "../utils/windowUtils";
 
 const LoginPage = () => {
   const [emailOrPhone, setEmailOrPhone] = useState("");
@@ -14,6 +15,10 @@ const LoginPage = () => {
     // In a real app, we would handle authentication here
     console.log("Login attempted with:", { emailOrPhone, password });
     navigate("/");
+  };
+
+  const handleGoogleSignIn = () => {
+    openGoogleAuthWindow();
   };
 
   return (
@@ -44,7 +49,10 @@ const LoginPage = () => {
           <h1 className="text-3xl font-semibold text-gray-900 mb-6">Sign in</h1>
 
           {/* Sign in with Google button */}
-          <button className="w-full flex justify-center items-center py-2 px-4 border border-gray-300 rounded-full text-gray-700 bg-white hover:bg-gray-50 mb-4">
+          <button
+            onClick={handleGoogleSignIn}
+            className="w-full flex justify-center items-center py-2 px-4 border border-gray-300 rounded-full text-gray-700 bg-white hover:bg-gray-50 mb-4"
+          >
             <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24">
               <path
                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
