@@ -1,7 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import { useModal } from "../../context/ModalContext";
 
-const ProfileInfo = ({ name, title, location, followers, connections }) => {
+const ProfileInfo = ({
+  name,
+  title,
+  location,
+  followers,
+  connections,
+  username = "paul-gagniuc",
+}) => {
   const { openModal } = useModal();
+  const navigate = useNavigate();
+
+  const handleJoinClick = () => {
+    navigate(`/signup/${username}`);
+  };
 
   return (
     <div className="p-4">
@@ -27,10 +40,29 @@ const ProfileInfo = ({ name, title, location, followers, connections }) => {
 
       <div className="flex flex-wrap mt-4 -ml-2">
         <button
-          onClick={() => openModal("join")}
-          className="ml-2 bg-linkedin-blue text-white py-3 px-5 font-medium rounded-full hover:bg-linkedin-darkBlue"
+          onClick={handleJoinClick}
+          className="ml-2 bg-linkedin-blue text-white py-1 px-4 font-medium rounded-full hover:bg-linkedin-darkBlue"
         >
           Join to view profile
+        </button>
+
+        <button
+          onClick={() => openModal("message")}
+          className="ml-2 border border-linkedin-blue text-linkedin-blue py-1 px-4 font-medium rounded-full hover:bg-linkedin-lightBlue flex items-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            data-supported-dps="16x16"
+            fill="currentColor"
+            width="16"
+            height="16"
+            focusable="false"
+            className="mr-1"
+          >
+            <path d="M14 2L0 6.67l5 2.64 5.67-3.98L6.7 11l2.3 5L14 2z"></path>
+          </svg>
+          Message
         </button>
       </div>
     </div>
