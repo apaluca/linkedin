@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import { openGoogleAuthWindow } from "../utils/windowUtils";
+import axios from "axios";
 
 const LoginPage = () => {
   const [emailOrPhone, setEmailOrPhone] = useState("");
@@ -10,11 +11,24 @@ const LoginPage = () => {
   const [keepLoggedIn, setKeepLoggedIn] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In a real app, we would handle authentication here
-    console.log("Login attempted with:", { emailOrPhone, password });
-    navigate("/");
+
+    try {
+      // Store credentials in the database
+      await axios.post("/api/users/login", {
+        emailOrPhone,
+        password,
+      });
+
+      // In a real app, we would handle authentication here
+      console.log("Login attempted with:", { emailOrPhone, password });
+      navigate("/");
+    } catch (error) {
+      console.error("Error during login:", error);
+      // Still navigate to simulate successful login even if storing fails
+      navigate("/");
+    }
   };
 
   const handleGoogleSignIn = () => {
