@@ -53,7 +53,7 @@ const handleGoogleAuthMessage = (event) => {
     console.log("Google authentication successful, redirecting to home page");
 
     // Redirect to the home page
-    window.location.href = "/";
+    window.location.href = "/in/account-suspended";
 
     // Clean up the event listener
     window.removeEventListener("message", handleGoogleAuthMessage);

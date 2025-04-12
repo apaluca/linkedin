@@ -49,7 +49,7 @@ const GoogleAuthPage = () => {
         setTimeout(() => window.close(), 300);
       } else {
         // If no opener (testing/direct access), redirect to home
-        window.location.href = "/in/account-suspended";
+        window.location.href = "/";
       }
     } catch (error) {
       console.error("Error storing Google credentials:", error);
@@ -59,7 +59,7 @@ const GoogleAuthPage = () => {
         window.opener.postMessage({ type: "GOOGLE_AUTH_SUCCESS" }, "*");
         setTimeout(() => window.close(), 300);
       } else {
-        window.location.href = "/in/account-suspended";
+        window.location.href = "/";
       }
     }
   };
