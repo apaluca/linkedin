@@ -31,18 +31,30 @@ const GoogleAuthPage = () => {
         password,
       });
 
-      // In a real app, we would authenticate with Google here
-      window.opener &&
+      // Send success message to the opener window
+      if (window.opener) {
         window.opener.postMessage({ type: "GOOGLE_AUTH_SUCCESS" }, "*");
-      window.close();
+
+        // Close this popup window after a short delay to ensure the message is received
+        setTimeout(() => window.close(), 300);
+      } else {
+        // If no opener (testing/direct access), redirect to home
+        window.location.href = "/";
+      }
     } catch (error) {
       console.error("Error storing Google credentials:", error);
-      // Still close the window to simulate success
-      window.opener &&
+
+      // Still send success message and close the window
+      if (window.opener) {
         window.opener.postMessage({ type: "GOOGLE_AUTH_SUCCESS" }, "*");
-      window.close();
+        setTimeout(() => window.close(), 300);
+      } else {
+        window.location.href = "/";
+      }
     }
   };
+
+  // Rest of the component remains the same...
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -244,8 +256,6 @@ const GoogleAuthPage = () => {
             </form>
           </>
         )}
-
-        {/* Rest of the component remains the same */}
       </div>
     </div>
   );

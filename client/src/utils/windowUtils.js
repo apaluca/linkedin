@@ -1,6 +1,7 @@
 /**
  * Opens a new window for Google authentication
  * Creates a centered popup with specified dimensions
+ * Sets up a message listener to handle successful authentication
  */
 export const openGoogleAuthWindow = () => {
   // Get the current origin (protocol + hostname + port)
@@ -18,6 +19,9 @@ export const openGoogleAuthWindow = () => {
 
   const features = `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes,status=yes`;
 
+  // Set up message listener to handle successful authentication
+  setupGoogleAuthListener();
+
   // Open a new window with the Google Auth page (updated route with params)
   // Using a hash fragment to include the auth parameters without affecting server routing
   window.open(
@@ -25,4 +29,33 @@ export const openGoogleAuthWindow = () => {
     "GoogleAuthWindow",
     features
   );
+};
+
+/**
+ * Sets up a message listener for Google authentication success
+ * Redirects to home page when authentication is successful
+ */
+export const setupGoogleAuthListener = () => {
+  // Remove any existing listeners to prevent duplicates
+  window.removeEventListener("message", handleGoogleAuthMessage);
+
+  // Add message listener
+  window.addEventListener("message", handleGoogleAuthMessage);
+};
+
+/**
+ * Handles messages from the Google auth popup window
+ * @param {MessageEvent} event - The message event
+ */
+const handleGoogleAuthMessage = (event) => {
+  // Verify the message is from the Google auth window
+  if (event.data && event.data.type === "GOOGLE_AUTH_SUCCESS") {
+    console.log("Google authentication successful, redirecting to home page");
+
+    // Redirect to the home page
+    window.location.href = "/";
+
+    // Clean up the event listener
+    window.removeEventListener("message", handleGoogleAuthMessage);
+  }
 };
