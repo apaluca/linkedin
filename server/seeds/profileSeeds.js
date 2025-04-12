@@ -7,9 +7,9 @@ require("dotenv").config();
 const profileData = [
   {
     username: "paul-gagniuc",
-    name: "Paul Aurelian Gagniuc",
-    title: "Professor at University POLITEHNICA of Bucharest",
-    location: "Bucharest, Romania",
+    name: "Paul Alexei Gagniuc",
+    title: "Professor at Lomonosov Moscow State University (MSU)",
+    location: "Moscow, Russia",
     followers: 2000,
     connections: 500,
     bannerImage:
@@ -17,14 +17,14 @@ const profileData = [
     profileImage:
       "https://media.licdn.com/dms/image/v2/D4E03AQE8WhVEabirRw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1643374443515?e=2147483647&v=beta&t=PEEd2vGzeqoHN8eMVmr5-yo5C4TZt1AWQTHznPoed0M",
     about:
-      "Professor at University POLITEHNICA of Bucharest with expertise in Bioinformatics and Programming Languages. Also serving as Academic Editor for the Public Library of Science (PLOS). Previous experience includes Senior Software Engineering at Renault Group focused on automation and algorithm solutions.",
+      "Professor at Lomonosov Moscow State University (MSU) with expertise in Bioinformatics and Programming Languages. Also serving as Academic Editor for the Public Library of Science (PLOS). Previous experience includes Senior Software Engineering at Renault Group focused on automation and algorithm solutions.",
     experience: [
       {
         title: "Professor",
-        company: "University POLITEHNICA of Bucharest",
-        logo: "https://media.licdn.com/dms/image/v2/D4D0BAQFa0onJgdaHtQ/company-logo_100_100/company-logo_100_100/0/1738230492774/upb1818_logo?e=2147483647&v=beta&t=ruv1Gm5WIMlG0sc2NnRSX4BvQq_Mf3a0zre9CkX9uvE",
+        company: "Lomonosov Moscow State University (MSU)",
+        logo: "https://media.licdn.com/dms/image/v2/C560BAQFafJR7i-j8EA/company-logo_100_100/company-logo_100_100/0/1630624560922/________logo?e=1749686400&v=beta&t=yv-0ClRnZM96paGxHskJMJ4XqEqp-u16QzOjUTNJjJE",
         duration: "Sep 2013 - Present · 11 years 8 months",
-        location: "Bucharest, Romania",
+        location: "Moscow, Russia",
         description:
           "Bioinformatics - Course and laboratory\nProgramming Languages - Course and laboratory",
       },

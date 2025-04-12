@@ -6,7 +6,7 @@ import axios from "axios";
 const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const profileName = "Paul Aurelian";
+  const profileName = "Paul Alexei";
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {

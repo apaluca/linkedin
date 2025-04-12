@@ -70,11 +70,11 @@ const ProfilePage = () => {
         // For now, simulate an API call with setTimeout
         setTimeout(() => {
           setProfileData({
-            name: "Paul Aurelian Gagniuc",
-            title: "Professor at University POLITEHNICA of Bucharest",
-            location: "Bucharest, Romania",
-            followers: "2K",
-            connections: "500+",
+            name: "Paul Alexei Gagniuc",
+            title: "Professor at Lomonosov Moscow State University (MSU)",
+            location: "Moscow, Russia",
+            followers: "377",
+            connections: "50+",
             bannerImage:
               "https://media.licdn.com/dms/image/v2/C4E16AQGYjqKiTGHgTw/profile-displaybackgroundimage-shrink_200_800/profile-displaybackgroundimage-shrink_200_800/0/1643372738640?e=2147483647&v=beta&t=yvGNZeAVr1RFrxEsIZX9aWIUUqox_0Fkc_UPWaBqx9w",
             profileImage:
@@ -82,11 +82,11 @@ const ProfilePage = () => {
             experience: [
               {
                 title: "Professor",
-                company: "University POLITEHNICA of Bucharest",
+                company: "Lomonosov Moscow State University (MSU)",
                 duration: "Sep 2013 - Present · 11 years 8 months",
                 description:
                   "Bioinformatics - Course and laboratory\nProgramming Languages - Course and laboratory",
-                logo: "https://media.licdn.com/dms/image/v2/D4D0BAQFa0onJgdaHtQ/company-logo_100_100/company-logo_100_100/0/1738230492774/upb1818_logo?e=2147483647&v=beta&t=ruv1Gm5WIMlG0sc2NnRSX4BvQq_Mf3a0zre9CkX9uvE",
+                logo: "https://media.licdn.com/dms/image/v2/C560BAQFafJR7i-j8EA/company-logo_100_100/company-logo_100_100/0/1630624560922/________logo?e=1749686400&v=beta&t=yv-0ClRnZM96paGxHskJMJ4XqEqp-u16QzOjUTNJjJE",
               },
               {
                 title: "Academic Editor",

@@ -77,7 +77,7 @@ const ViewProfileModal = () => {
               <div className="w-24 h-24 rounded-full overflow-hidden bg-black mb-4">
                 <img
                   src="https://media.licdn.com/dms/image/v2/D4E03AQE8WhVEabirRw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1643374443515?e=2147483647&v=beta&t=PEEd2vGzeqoHN8eMVmr5-yo5C4TZt1AWQTHznPoed0M"
-                  alt="Paul Aurelian Gagniuc"
+                  alt="Paul Alexei Gagniuc"
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     e.target.onerror = null;
@@ -87,7 +87,7 @@ const ViewProfileModal = () => {
                 />
               </div>
               <h3 className="text-xl font-medium text-gray-900 mb-4">
-                View Paul Aurelian&apos;s full profile
+                View Paul Alexei&apos;s full profile
               </h3>
             </div>
 

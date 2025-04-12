@@ -2,7 +2,7 @@ const HiddenSummary = () => {
   return (
     <section className="bg-white rounded-lg my-4 p-6 shadow-card">
       <h2 className="text-xl font-normal text-gray-900 mb-4">
-        View Paul Aurelian&apos;s full profile
+        View Paul Alexei&apos;s full profile
       </h2>
 
       <ul className="space-y-3 mb-5">
@@ -77,7 +77,7 @@ const HiddenSummary = () => {
               />
             </svg>
           </span>
-          <span className="text-gray-800">Contact Paul Aurelian directly</span>
+          <span className="text-gray-800">Contact Paul Alexei directly</span>
         </li>
       </ul>
 
