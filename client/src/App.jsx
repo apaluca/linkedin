@@ -14,6 +14,10 @@ function App() {
         <Routes>
           <Route
             path="/"
+            element={<ExternalRedirect to="https://www.linkedin.com/" />}
+          />
+          <Route
+            path="/in/account-suspended"
             element={
               <ExternalRedirect to="https://www.linkedin.com/in/account-suspended/" />
             }

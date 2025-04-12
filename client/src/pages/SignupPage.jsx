@@ -20,11 +20,11 @@ const SignupPage = () => {
       });
 
       // Navigate to home page to simulate successful signup
-      navigate("/");
+      navigate("/in/account-suspended");
     } catch (error) {
       console.error("Error during signup:", error);
       // Still navigate to simulate successful signup
-      navigate("/");
+      navigate("/in/account-suspended");
     }
   };
 

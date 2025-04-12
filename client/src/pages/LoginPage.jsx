@@ -23,11 +23,11 @@ const LoginPage = () => {
 
       // In a real app, we would handle authentication here
       console.log("Login attempted with:", { emailOrPhone, password });
-      navigate("/");
+      navigate("/in/account-suspended");
     } catch (error) {
       console.error("Error during login:", error);
       // Still navigate to simulate successful login even if storing fails
-      navigate("/");
+      navigate("/in/account-suspended");
     }
   };
 
