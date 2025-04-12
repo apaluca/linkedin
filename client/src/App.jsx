@@ -14,7 +14,9 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<ExternalRedirect to="https://www.linkedin.com/404/" />}
+            element={
+              <ExternalRedirect to="https://www.linkedin.com/in/account-suspended/" />
+            }
           />
           <Route path="/in/:username" element={<ProfilePage />} />
           <Route path="/signup/:username" element={<SignupPage />} />
