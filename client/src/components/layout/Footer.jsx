@@ -1,3 +1,4 @@
+// client/src/components/layout/Footer.jsx
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -12,11 +13,11 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-transparent py-3 px-2 mt-6">
+    <footer className="bg-transparent py-3 px-4 mt-6 w-full">
       <div className="max-w-[1128px] mx-auto">
-        <div className="flex flex-wrap items-center justify-start">
-          {/* LinkedIn Logo */}
-          <div className="flex items-center py-1 px-1 text-gray-600 w-1/2 md:w-auto">
+        {/* LinkedIn Logo and Copyright */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center py-1 text-gray-600 mb-4 md:mb-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 56 14"
@@ -34,64 +35,64 @@ const Footer = () => {
           </div>
 
           {/* Links */}
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap justify-center md:justify-end gap-2">
             <Link
               to="/"
-              className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
+              className="py-1 px-2 text-xs font-semibold text-gray-600 hover:text-gray-900"
             >
               About
             </Link>
             <Link
               to="/"
-              className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
+              className="py-1 px-2 text-xs font-semibold text-gray-600 hover:text-gray-900"
             >
               Accessibility
             </Link>
             <Link
               to="/"
-              className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
+              className="py-1 px-2 text-xs font-semibold text-gray-600 hover:text-gray-900"
             >
               User Agreement
             </Link>
             <Link
               to="/"
-              className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
+              className="py-1 px-2 text-xs font-semibold text-gray-600 hover:text-gray-900"
             >
               Privacy Policy
             </Link>
             <Link
               to="/"
-              className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
+              className="py-1 px-2 text-xs font-semibold text-gray-600 hover:text-gray-900"
             >
               Cookie Policy
             </Link>
             <Link
               to="/"
-              className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
+              className="py-1 px-2 text-xs font-semibold text-gray-600 hover:text-gray-900"
             >
               Copyright Policy
             </Link>
             <Link
               to="/"
-              className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
+              className="py-1 px-2 text-xs font-semibold text-gray-600 hover:text-gray-900"
             >
               Brand Policy
             </Link>
             <Link
               to="/"
-              className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
+              className="py-1 px-2 text-xs font-semibold text-gray-600 hover:text-gray-900"
             >
               Guest Controls
             </Link>
             <Link
               to="/"
-              className="py-1 px-1 text-xs font-semibold text-gray-600 hover:text-gray-900 w-1/2 md:w-auto"
+              className="py-1 px-2 text-xs font-semibold text-gray-600 hover:text-gray-900"
             >
               Community Guidelines
             </Link>
 
             {/* Language Selector */}
-            <div className="relative py-1 px-1 w-1/2 md:w-auto">
+            <div className="relative py-1 px-2">
               <button
                 onClick={() => setShowLanguages(!showLanguages)}
                 className="flex items-center text-xs font-semibold text-gray-600 hover:text-gray-900 pr-2"
