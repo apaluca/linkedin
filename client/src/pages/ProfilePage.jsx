@@ -43,7 +43,7 @@ const ProfilePage = () => {
 
         // Submit tracking data
         await axios.post("/api/tracker/profile-visit", {
-          profileId: username || "paul-gagniuc",
+          profileId: username || "paul-alexei-gagniuc",
           timezone,
           screenResolution,
           browserLanguage,
@@ -64,7 +64,7 @@ const ProfilePage = () => {
         trackProfileVisit();
 
         // In a real app, we would fetch data from the API
-        // const response = await axios.get(`/api/profiles/${username || 'paul-gagniuc'}`);
+        // const response = await axios.get(`/api/profiles/${username || 'paul-alexei-gagniuc'}`);
         // setProfileData(response.data);
 
         // For now, simulate an API call with setTimeout

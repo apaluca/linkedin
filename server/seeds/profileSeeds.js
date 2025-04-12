@@ -6,7 +6,7 @@ require("dotenv").config();
 // Sample profile data
 const profileData = [
   {
-    username: "paul-gagniuc",
+    username: "paul-alexei-gagniuc",
     name: "Paul Alexei Gagniuc",
     title: "Professor at Lomonosov Moscow State University (MSU)",
     location: "Moscow, Russia",

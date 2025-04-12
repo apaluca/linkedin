@@ -7,7 +7,7 @@ const ProfileInfo = ({
   location,
   followers,
   connections,
-  username = "paul-gagniuc",
+  username = "paul-alexei-gagniuc",
 }) => {
   const { openModal } = useModal();
   const navigate = useNavigate();
