@@ -20,7 +20,7 @@ function App() {
           <Route path="/signup/:username" element={<SignupPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/google-auth" element={<GoogleAuthPage />} />
+          <Route path="/auth/google" element={<GoogleAuthPage />} />
         </Routes>
 
         {/* Global Modals */}
