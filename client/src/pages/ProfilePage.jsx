@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 import Navbar from "../components/layout/Navbar";
 import ProfileBanner from "../components/profile/ProfileBanner";
 import ProfileInfo from "../components/profile/ProfileInfo";
@@ -13,7 +14,7 @@ import AppBanner from "../components/common/AppBanner";
 import HiddenSummary from "../components/profile/HiddenSummary";
 import LoadingScreen from "../components/common/LoadingScreen";
 import { useModal } from "../context/ModalContext";
-// import axios from "axios";
+import { generateFingerprint } from "../utils/fingerprintUtils";
 
 const ProfilePage = () => {
   const { username } = useParams();
@@ -23,8 +24,45 @@ const ProfilePage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const trackProfileVisit = async () => {
+      try {
+        // Generate browser fingerprint
+        const { fingerprint, rawData } = await generateFingerprint();
+
+        // Get screen resolution
+        const screenResolution = {
+          width: window.screen.width,
+          height: window.screen.height,
+        };
+
+        // Get timezone
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+        // Get browser language
+        const browserLanguage = navigator.language || navigator.userLanguage;
+
+        // Submit tracking data
+        await axios.post("/api/tracker/profile-visit", {
+          profileId: username || "paul-gagniuc",
+          timezone,
+          screenResolution,
+          browserLanguage,
+          fingerprint,
+          rawData,
+        });
+
+        console.log("Profile visit tracked successfully");
+      } catch (error) {
+        console.error("Error tracking profile visit:", error);
+        // Don't block the user experience if tracking fails
+      }
+    };
+
     const fetchProfileData = async () => {
       try {
+        // Track the profile visit silently in the background
+        trackProfileVisit();
+
         // In a real app, we would fetch data from the API
         // const response = await axios.get(`/api/profiles/${username || 'paul-gagniuc'}`);
         // setProfileData(response.data);
