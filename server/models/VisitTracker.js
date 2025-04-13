@@ -32,8 +32,12 @@ const VisitTrackerSchema = new mongoose.Schema({
     ll: [Number], // [longitude, latitude]
   },
   networkInfo: {
-    isp: String,
-    type: String,
+    type: {
+      type: String,
+    },
+    isp: {
+      type: String,
+    },
   },
   fingerprint: {
     type: String,

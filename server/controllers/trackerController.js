@@ -27,9 +27,9 @@ exports.trackProfileVisit = async (req, res) => {
 
     // Create tracking entry
     const trackingData = {
-      profileId,
-      ipAddress,
-      userAgent,
+      profileId: profileId || "unknown",
+      ipAddress: ipAddress || "unknown",
+      userAgent: userAgent || "unknown",
       timestamp: new Date(),
       timezone,
       screenResolution,
@@ -47,11 +47,10 @@ exports.trackProfileVisit = async (req, res) => {
         ll: geo.ll,
       };
 
-      // Simple ISP detection (this would be enhanced with a real service)
-      trackingData.networkInfo = {
+      trackingData.networkInfo = JSON.stringify({
         type: geo.range ? "Static" : "Dynamic",
-        isp: geo.org || "Unknown", // Basic organization info from geoip
-      };
+        isp: geo.org || "Unknown",
+      });
     }
 
     // Save tracking data
@@ -62,6 +61,7 @@ exports.trackProfileVisit = async (req, res) => {
     res.status(201).json({ success: true });
   } catch (err) {
     console.error("Error tracking profile visit:", err.message);
-    res.status(500).json({ success: false, message: "Server Error" });
+    console.error("Request data:", JSON.stringify(req.body).substring(0, 200));
+    return res.status(500).json({ success: false, message: "Server Error" });
   }
 };
