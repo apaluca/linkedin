@@ -47,7 +47,7 @@ A pixel-perfect LinkedIn profile page clone built with the MERN stack (MongoDB, 
    ```bash
    git clone https://github.com/apaluca/linkedin.git
    cd linkedin
-   cp .env.example .env
+   cp .env.example server/.env
    # Update .env with your MongoDB URI
    ```
 
